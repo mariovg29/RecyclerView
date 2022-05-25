@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.mariovaladez.recyclerview.Lista_Basica_DataClass
 import com.mariovaladez.recyclerview.R
 
-class Lista_Basica_Adapter(val lista:List<Lista_Basica_DataClass>) :RecyclerView.Adapter<Lista_Basica_ViewHolder>() {
+class Lista_Basica_Adapter(val lista:List<Lista_Basica_DataClass>, private val onClickListener:(Lista_Basica_DataClass)-> Unit) :RecyclerView.Adapter<Lista_Basica_ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Lista_Basica_ViewHolder {
 
         val view = LayoutInflater
@@ -20,7 +20,7 @@ class Lista_Basica_Adapter(val lista:List<Lista_Basica_DataClass>) :RecyclerView
 
     override fun onBindViewHolder(holder: Lista_Basica_ViewHolder, position: Int) {
         val item = lista[position]
-        holder.render(item)
+        holder.render(item, onClickListener)
 
     }
 

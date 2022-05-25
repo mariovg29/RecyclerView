@@ -2,6 +2,9 @@ package com.mariovaladez.recyclerview
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.mariovaladez.recyclerview.Adapter.Lista_Basica_Adapter
@@ -21,8 +24,24 @@ class MainActivity : AppCompatActivity() {
 
     fun initRecyclerView(){
 
-        binding.rvListaBasica.layoutManager = LinearLayoutManager(this)
-        binding.rvListaBasica.adapter = Lista_Basica_Adapter(Lista_Basica_Provider.listaBasicaList)
+        val manager = LinearLayoutManager(this)
+
+
+        binding.rvListaBasica.layoutManager = manager
+        binding.rvListaBasica.adapter = Lista_Basica_Adapter(Lista_Basica_Provider.listaBasicaList) { listabasica ->
+            onItemSelected(
+                listabasica
+            )
+        }
+
+
+    }
+    fun onItemSelected(listaBasica:Lista_Basica_DataClass){
+        Toast.makeText(
+            this,
+            listaBasica.Nombre+" "+listaBasica.id,
+            Toast.LENGTH_SHORT
+        ).show()
 
     }
 }
