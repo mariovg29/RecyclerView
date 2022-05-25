@@ -9,7 +9,7 @@ class Lista_Basica_Provider {
                 1,
                 "Mario",
                 "Valadez",
-                "https://cdn.pixabay.com/photo/2022/05/11/07/10/porridge-7188630_960_720.jpg"
+                "https://cdn.pixabay.com/photo/2022/05/21/11/46/frog-7211336__340.png"
             ),
             Lista_Basica_DataClass(
                 2,

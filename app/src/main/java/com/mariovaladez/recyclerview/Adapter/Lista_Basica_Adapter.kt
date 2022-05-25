@@ -9,8 +9,12 @@ import com.mariovaladez.recyclerview.R
 class Lista_Basica_Adapter(val lista:List<Lista_Basica_DataClass>) :RecyclerView.Adapter<Lista_Basica_ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Lista_Basica_ViewHolder {
 
-        val layoutInflater = LayoutInflater.from(parent.context)
-        return Lista_Basica_ViewHolder(layoutInflater.inflate(R.layout.lista_basica_item,parent,false))
+        val view = LayoutInflater
+            .from(parent.context)
+            .inflate(R.layout.lista_basica_item,parent,false)
+        return Lista_Basica_ViewHolder(view)
+
+
 
     }
 
