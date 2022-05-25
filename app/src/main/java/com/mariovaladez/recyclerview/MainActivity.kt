@@ -6,22 +6,18 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.mariovaladez.recyclerview.Adapter.Lista_Basica_Adapter
 import com.mariovaladez.recyclerview.Provider.Lista_Basica_Provider
-import com.mariovaladez.recyclerview.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-
-    private lateinit var binding: ActivityMainBinding
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding= ActivityMainBinding.inflate(layoutInflater)
+        setContentView(R.layout.activity_main)
         initRecyclerView()
     }
 
     fun initRecyclerView(){
-
-        binding.rvListaBasica.layoutManager = LinearLayoutManager(this)
-        binding.rvListaBasica.adapter = Lista_Basica_Adapter(Lista_Basica_Provider.listaBasicaList)
+        val recyclerView = findViewById<RecyclerView>(R.id.rv_lista_basica)
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.adapter = Lista_Basica_Adapter(Lista_Basica_Provider.listaBasicaList)
 
     }
 }
