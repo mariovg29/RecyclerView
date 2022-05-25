@@ -15,7 +15,7 @@ class Lista_Basica_ViewHolder( view:View):RecyclerView.ViewHolder(view) {
 
     val binding = ListaBasicaItemBinding.bind(view)
 
-    fun render(lista_basica_model:Lista_Basica_DataClass){
+    fun render(lista_basica_model:Lista_Basica_DataClass, onClickListener:(Lista_Basica_DataClass)-> Unit){
 
         binding.tvListaBasicaNombre.text = lista_basica_model.Nombre
         binding.tvListaBasicaApellido.text = lista_basica_model.Apellido
@@ -24,19 +24,9 @@ class Lista_Basica_ViewHolder( view:View):RecyclerView.ViewHolder(view) {
             .load(lista_basica_model.foto)
             .into(binding.ivListaBasicaFoto)
 
-        binding.ivListaBasicaFoto.setOnClickListener { Toast.makeText(
-            binding.ivListaBasicaFoto.context,
-            lista_basica_model.Nombre+" "+lista_basica_model.id,
-            Toast.LENGTH_SHORT
-        ).show()
-        }
 
-        itemView.setOnClickListener {
-            Toast.makeText(
-                binding.ivListaBasicaFoto.context,
-                lista_basica_model.Apellido,
-                Toast.LENGTH_SHORT
-            ).show()
+        itemView.setOnClickListener { onClickListener(lista_basica_model)
+
         }
 
     }
