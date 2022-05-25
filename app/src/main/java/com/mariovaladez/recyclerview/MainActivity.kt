@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
     fun initRecyclerView(){
 
         val manager = LinearLayoutManager(this)
-        val decoration = DividerItemDecoration(this,manager.orientation)
+
 
         binding.rvListaBasica.layoutManager = manager
         binding.rvListaBasica.adapter = Lista_Basica_Adapter(Lista_Basica_Provider.listaBasicaList) { listabasica ->
@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
                 listabasica
             )
         }
-        binding.rvListaBasica.addItemDecoration(decoration)
+
 
     }
     fun onItemSelected(listaBasica:Lista_Basica_DataClass){
